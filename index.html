@@ -759,7 +759,7 @@
                     <div class="album-artwork">
                         <div class="artwork artwork-2"></div>
                         <div class="play-overlay">
-                            <div class="play-btn" id="play-pyes-pain" aria-label="Play on SoundCloud">
+                            <div class="play-btn" id="play-pyes-pain" aria-label="Choose Streaming Service">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <polygon points="5 3 19 12 5 21 5 3"></polygon>
                                 </svg>
@@ -996,7 +996,7 @@
             'pyes-cakes': 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/presspyes/sets/pyes-to-cakes&auto_play=true&color=%23ff3366&visual=true',
             'ghetto-soul': 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/presspyes/sets/ghetto-soul-2004&auto_play=true&color=%23ff3366&visual=true',
             'pyes-pounds': 'https://tidal.com/album/71349338/u',
-            'pyes-pain': 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/pyes-1/sets/paste&auto_play=true&color=%23ff3366&visual=true',
+            'pyes-pain': 'https://tidal.com/album/38828849/u',
             'deep-roots': 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/pastpyes/sets/deeproots-presents-street-wise-professionalz&auto_play=true&color=%23ff3366&visual=true',
             'price-game': 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/pastpyes/sets/price-of-the-game&auto_play=true&color=%23ff3366&visual=true'
         };
@@ -1004,7 +1004,7 @@
         Object.keys(playerUrls).forEach(key => {
             const btn = document.getElementById(`play-${key}`);
             if (btn) {
-                if (key === 'pyes-pounds') {
+                if (key === 'pyes-pounds' || key === 'pyes-pain') {
                     btn.addEventListener('click', () => {
                         window.open(playerUrls[key], '_blank');
                     });
