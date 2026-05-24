@@ -224,7 +224,6 @@
             background: var(--void);
         }
 
-        /* Animated grid background */
         .hero-grid {
             position: absolute; inset: 0;
             background-image:
@@ -239,7 +238,6 @@
             50% { opacity: 0.7; }
         }
 
-        /* Glowing orbs */
         .orb {
             position: absolute;
             border-radius: 50%;
@@ -372,7 +370,6 @@
         .hero-cta:hover::before { transform: translateX(0); }
         .hero-cta svg { width: 14px; height: 14px; }
 
-        /* scroll indicator */
         .scroll-hint {
             position: absolute;
             bottom: 2.5rem;
@@ -518,7 +515,6 @@
             background: linear-gradient(90deg, transparent, var(--border-bright), transparent);
         }
 
-        /* Filter buttons */
         .filter-wrap {
             display: flex;
             align-items: center;
@@ -543,7 +539,6 @@
             color: var(--acid);
         }
 
-        /* Albums grid */
         .albums-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -649,7 +644,6 @@
             color: var(--muted);
         }
 
-        /* Corner accent on hover */
         .album-card::after {
             content: '';
             position: absolute;
@@ -662,6 +656,181 @@
         }
         .album-card:hover::after {
             border-width: 0 28px 28px 0;
+        }
+
+        /* ─── DONATE ─── */
+        .donate {
+            padding: 7rem 2.5rem;
+            background: var(--void2);
+            position: relative;
+        }
+        .donate::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--acid), transparent);
+            opacity: 0.4;
+        }
+
+        .donate-intro {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            line-height: 2;
+            color: var(--muted);
+            max-width: 560px;
+            margin-bottom: 3.5rem;
+        }
+
+        .crypto-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5px;
+            border: 1.5px solid var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .crypto-card {
+            background: var(--surface);
+            padding: 2rem 2rem 2.2rem;
+            border-right: 1.5px solid var(--border);
+            position: relative;
+            overflow: hidden;
+            transition: background 0.3s;
+        }
+        .crypto-card:last-child { border-right: none; }
+        .crypto-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 3px; height: 0;
+            background: var(--acid);
+            transition: height 0.4s;
+        }
+        .crypto-card:hover { background: var(--surface2); }
+        .crypto-card:hover::before { height: 100%; }
+
+        .crypto-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.4rem;
+        }
+
+        .crypto-icon {
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            border: 1px solid var(--border-bright);
+            display: flex; align-items: center; justify-content: center;
+            background: var(--acid-dim);
+            flex-shrink: 0;
+        }
+        .crypto-icon svg { width: 20px; height: 20px; }
+
+        .crypto-name {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--white);
+            letter-spacing: 1px;
+        }
+        .crypto-ticker {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.58rem;
+            letter-spacing: 3px;
+            color: var(--acid);
+            text-transform: uppercase;
+            margin-top: 2px;
+            display: block;
+        }
+
+        .crypto-network {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.55rem;
+            letter-spacing: 3px;
+            color: var(--muted);
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .crypto-address {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.6rem;
+            color: rgba(240,240,255,0.55);
+            word-break: break-all;
+            line-height: 1.8;
+            background: rgba(0,0,0,0.35);
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            padding: 0.8rem 1rem;
+            margin-bottom: 1rem;
+            transition: border-color 0.3s, color 0.3s;
+        }
+        .crypto-card:hover .crypto-address {
+            border-color: rgba(200,255,0,0.25);
+            color: rgba(240,240,255,0.75);
+        }
+
+        .copy-btn {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            padding: 0.65rem 1rem;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--muted);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            border-radius: 2px;
+            cursor: none;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .copy-btn::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: var(--acid);
+            transform: translateX(-100%);
+            transition: transform 0.3s;
+            z-index: 0;
+        }
+        .copy-btn span { position: relative; z-index: 1; }
+        .copy-btn svg { width: 13px; height: 13px; position: relative; z-index: 1; }
+        .copy-btn:hover {
+            color: var(--void);
+            border-color: var(--acid);
+            box-shadow: 0 0 20px var(--acid-glow);
+        }
+        .copy-btn:hover::before { transform: translateX(0); }
+        .copy-btn.copied { color: var(--void); border-color: var(--acid); }
+        .copy-btn.copied::before { transform: translateX(0); }
+
+        .donate-note {
+            margin-top: 2.5rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.58rem;
+            letter-spacing: 2px;
+            color: var(--muted);
+            text-align: center;
+            line-height: 2;
+        }
+        .donate-note strong { color: var(--acid); font-weight: 400; }
+
+        @media (max-width: 900px) {
+            .crypto-grid { grid-template-columns: repeat(2, 1fr); }
+            .crypto-card:nth-child(2) { border-right: none; }
+            .crypto-card:nth-child(3) { border-right: 1.5px solid var(--border); border-top: 1.5px solid var(--border); }
+            .crypto-card:nth-child(4) { border-right: none; border-top: 1.5px solid var(--border); }
+        }
+        @media (max-width: 600px) {
+            .crypto-grid { grid-template-columns: 1fr; }
+            .crypto-card { border-right: none !important; border-top: none !important; border-bottom: 1.5px solid var(--border); }
+            .crypto-card:last-child { border-bottom: none; }
         }
 
         /* ─── FOOTER ─── */
@@ -823,7 +992,6 @@
             transform: translateY(0);
         }
 
-        /* stagger */
         .fade-up:nth-child(1) { transition-delay: 0.05s; }
         .fade-up:nth-child(2) { transition-delay: 0.15s; }
         .fade-up:nth-child(3) { transition-delay: 0.25s; }
@@ -834,7 +1002,6 @@
         .fade-up:nth-child(8) { transition-delay: 0.5s; }
         .fade-up:nth-child(9) { transition-delay: 0.55s; }
 
-        /* glitch on hero title hover */
         @keyframes glitch1 {
             0%, 100% { clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%); transform: translate(0); }
             20% { clip-path: polygon(0 5%, 100% 5%, 100% 55%, 0 55%); transform: translate(-3px, 0); }
@@ -883,11 +1050,9 @@
 </head>
 <body>
 
-    <!-- Custom cursor -->
     <div id="cursor"></div>
     <div id="cursor-ring"></div>
 
-    <!-- Status bar -->
     <div class="status-bar">
         <div class="status-left">
             <span class="status-dot"></span>
@@ -900,7 +1065,6 @@
         </div>
     </div>
 
-    <!-- Header -->
     <header>
         <nav>
             <a class="logo" href="#home">PYES</a>
@@ -909,6 +1073,7 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#new">What's New</a></li>
                     <li><a href="#music">Music</a></li>
+                    <li><a href="#donate">Donate</a></li>
                 </ul>
             </div>
             <div class="social-icons">
@@ -937,6 +1102,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#new">What's New</a></li>
                 <li><a href="#music">Music</a></li>
+                <li><a href="#donate">Donate</a></li>
             </ul>
             <div class="social-icons">
                 <a href="https://instagram.com/presspyes" target="_blank" aria-label="Instagram">
@@ -1195,6 +1361,115 @@
         </div>
     </section>
 
+    <!-- Donate -->
+    <section class="donate" id="donate">
+        <div class="section-container">
+            <div class="section-header">
+                <div>
+                    <div class="section-label">Support The Movement</div>
+                    <h2 class="section-title">Donate</h2>
+                </div>
+            </div>
+            <p class="donate-intro">If the music moves you, show love directly. Every contribution keeps the craft going — no middlemen, no algorithms. Pure crypto, straight to the source.</p>
+            <div class="crypto-grid">
+
+                <!-- BTC -->
+                <div class="crypto-card fade-up">
+                    <div class="crypto-header">
+                        <div class="crypto-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--acid)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M9 8h4.5a2 2 0 0 1 0 4H9m0 0h5a2 2 0 0 1 0 4H9m0-8V7m0 9v1m2-10V7m0 9v1"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="crypto-name">Bitcoin</div>
+                            <span class="crypto-ticker">BTC &nbsp;·&nbsp; Native SegWit</span>
+                        </div>
+                    </div>
+                    <div class="crypto-network">Network // Bitcoin Mainnet</div>
+                    <div class="crypto-address">bc1qtyf5xsjfdnvxxuwalsx4ls5e83335l74zkv505</div>
+                    <button class="copy-btn" data-address="bc1qtyf5xsjfdnvxxuwalsx4ls5e83335l74zkv505">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                        <span>Copy Address</span>
+                    </button>
+                </div>
+
+                <!-- ETH -->
+                <div class="crypto-card fade-up">
+                    <div class="crypto-header">
+                        <div class="crypto-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--acid)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 2 19 12 16 22 19"/>
+                                <polygon points="12 2 12 16 22 19"/>
+                                <line x1="2" y1="14" x2="12" y2="11"/>
+                                <line x1="22" y1="14" x2="12" y2="11"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="crypto-name">Ethereum</div>
+                            <span class="crypto-ticker">ETH &nbsp;·&nbsp; ERC-20</span>
+                        </div>
+                    </div>
+                    <div class="crypto-network">Network // Ethereum Mainnet</div>
+                    <div class="crypto-address">0xf7FE678E1dA486befB2cD4B285b7c549b31Acf77</div>
+                    <button class="copy-btn" data-address="0xf7FE678E1dA486befB2cD4B285b7c549b31Acf77">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                        <span>Copy Address</span>
+                    </button>
+                </div>
+
+                <!-- SOL -->
+                <div class="crypto-card fade-up">
+                    <div class="crypto-header">
+                        <div class="crypto-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--acid)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 16.5h13a3 3 0 0 0 0-6H7a3 3 0 0 1 0-6h13"/>
+                                <polyline points="17 4 21 7.5 17 11"/>
+                                <polyline points="7 13 3 16.5 7 20"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="crypto-name">Solana</div>
+                            <span class="crypto-ticker">SOL &nbsp;·&nbsp; SPL Token</span>
+                        </div>
+                    </div>
+                    <div class="crypto-network">Network // Solana Mainnet</div>
+                    <div class="crypto-address">GrbMz5Zse1FQByebVTvHvwAENanyugf1hQ6BU79jcyF4</div>
+                    <button class="copy-btn" data-address="GrbMz5Zse1FQByebVTvHvwAENanyugf1hQ6BU79jcyF4">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                        <span>Copy Address</span>
+                    </button>
+                </div>
+
+                <!-- TRON -->
+                <div class="crypto-card fade-up">
+                    <div class="crypto-header">
+                        <div class="crypto-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--acid)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 22 20 2 20"/>
+                                <line x1="12" y1="9" x2="12" y2="15"/>
+                                <line x1="9" y1="14" x2="15" y2="14"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="crypto-name">Tron</div>
+                            <span class="crypto-ticker">TRX &nbsp;·&nbsp; TRC-20</span>
+                        </div>
+                    </div>
+                    <div class="crypto-network">Network // Tron Mainnet</div>
+                    <div class="crypto-address">TUkEPV4Mrrn5txB7kMtdgtg5qrY3uQbabp</div>
+                    <button class="copy-btn" data-address="TUkEPV4Mrrn5txB7kMtdgtg5qrY3uQbabp">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                        <span>Copy Address</span>
+                    </button>
+                </div>
+
+            </div>
+            <p class="donate-note">Always verify the address before sending &nbsp;·&nbsp; <strong>Only send the matching network token to each address</strong></p>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="footer-content">
@@ -1329,6 +1604,38 @@
         function closePlayer() {
             modal.style.display = 'none';
             playerFrame.src = '';
+        }
+
+        // ─── COPY ADDRESSES ───
+        document.querySelectorAll('.copy-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const address = btn.dataset.address;
+                const span = btn.querySelector('span');
+                const copy = () => {
+                    span.textContent = 'Copied!';
+                    btn.classList.add('copied');
+                    setTimeout(() => {
+                        span.textContent = 'Copy Address';
+                        btn.classList.remove('copied');
+                    }, 2000);
+                };
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(address).then(copy).catch(() => fallbackCopy(address, copy));
+                } else {
+                    fallbackCopy(address, copy);
+                }
+            });
+        });
+
+        function fallbackCopy(text, cb) {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.cssText = 'position:fixed;opacity:0;top:0;left:0';
+            document.body.appendChild(ta);
+            ta.focus();
+            ta.select();
+            try { document.execCommand('copy'); cb(); } catch(e) {}
+            document.body.removeChild(ta);
         }
 
         // ─── SCROLL REVEAL ───
